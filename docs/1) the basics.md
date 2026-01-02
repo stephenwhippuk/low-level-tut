@@ -1,5 +1,4 @@
 
-This diagram shows three memory locations (x, y, z) as blocks. Each block is labeled with its symbol, value, and address. For pointers, the value can be shown as the address it points to.
 # Basics
 
 ## Copy By Value
