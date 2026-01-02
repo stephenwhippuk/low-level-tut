@@ -96,15 +96,14 @@ if instead we defined the function
 
 ```cpp
 void printChar(unsigned char* v4){
-    if(v4 < 'A'){
-        v4 = 'A'; // legal if not advised and may throw a compiler warning
+    if(*v4 < 'A'){
+        *v4 = 'A'; // legal if not advised and may throw a compiler warning
     }
-    std::cout << v4 << std::endl;
+    std::cout << *v4 << std::endl;
 }
 ```
 
-then things would be different, we will not be passing in a pointer (reference) to the variable in main. This means
-we get local copy of the pointer not the value. 
+then things would be different, we will be passing in a pointer (reference) to the variable in main, rather than the value of the variable. This means we get local copy of the pointer not the value. 
 
 ```cpp
 
@@ -171,3 +170,6 @@ Memory Diagram showing indirecton (passing a pointer in )
 0xE0    |      |            | 0x01 |            | 0x01 |
         --------            --------            --------
 ```
+
+
+
