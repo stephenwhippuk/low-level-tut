@@ -31,7 +31,7 @@ v1 = 'A';
 ```
 now the value at 0x01 will be 'A' and the value at 0x02 will still be '\n'
 
-```mermaid
+```
 
 Memory Diagram showing copy by value 
 
@@ -83,7 +83,7 @@ std::cout << *v3 << std::endl;
 
 would output 'B' to stdout. the value of v3 hasn't changed, it still holds the address of v1. the value of v1 has changed so when we access the value stored at where v3 points to (0x01) the updated value is returned. this is called *indirection*, because we are accessing the value of v1 indirectly via v3. 
 
-```mermaid
+```
 
 Memory Diagram showing indirecton
 
