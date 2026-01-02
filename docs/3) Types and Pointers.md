@@ -13,18 +13,18 @@ of how the operation manipulates those bytes.
 # Run Time and Compile Time Types
 The above, strictly defines a runtime type, a compile time type typically has lots of structure in the high level language, this is lost to varying degrees depending on the language when translated into a run time type
 
-- at the one end we have a langugage like C# or Java, it maintains basically the full information of the type at both runtime and compile time
+- at the one end we have a language like C# or Java, it maintains basically the full information of the type at both runtime and compile time
 
-- at the other end we have something like C, where structly speakling there is no extant type information left with the runtime object at all. It remains only virtually in the operations. 
+- at the other end we have something like C, where strictly speaking there is no extant type information left with the runtime object at all. It remains only virtually in the operations. 
 
 - in the middle you get languages like C++, where some runtime information (that which is required for runtime polymorphism ) is retained, but where it is static, it behaves like C. 
 
 # Types in C++ and pointers
 We will be considering this from the perspective of C++ but it is important to note that different languages vary in their ways of storing runtime type information. 
 
-Complex types are handled by classes/structs that we will come back to, for now I wish to only focus on primitive types. for which (I will be using *char*, *int* and *double*).
+Complex types are handled by classes/structs that we will come back to, for now I wish to only focus on primitive types: from which I will be using *char*, *int* and *double*.
 
-In modern c++ compilers *chars* have a size of 1 byte, *ints* a size of 4 bytes and *doubles* a size of 8 bytes. the first 2 are integral types and the last a floating point type. We can see that each, (as arithemtic types), will support the same operations in general +, - etc. However, equally as they are different formats, (sizes at least), different ops will be needed to interact with them in the binary. This makes them distinct types both at compile time and run time.
+In modern C++ compilers *chars* have a size of 1 byte, *ints* a size of 4 bytes and *doubles* a size of 8 bytes. the first 2 are integral types and the last a floating point type. We can see that each, (as arithemtic types), will support the same operations in general +, - etc. However, equally as they are different formats, (sizes at least), different ops will be needed to interact with them in the binary. This makes them distinct types both at compile time and run time.
 
 If we come back to the symbol table, it is the semantics of the type for the symbol in this, that determine which ops the compiler should select. However, once this has been done, the knowledge of the type is lost. 
 
@@ -68,7 +68,7 @@ C and to a slightly lesser extent C++ have a very different philosophy. C will l
 
 C++ again is a middle road here. It does hold the philosophy that in general the programmer knows what they are doing, but on the other hand it also provides all the facilities to do it truly safely ,(post c++11 anyway). What it will do is warn you, in many cases make it ugly and cumbersome to do more dangerous operations, or at very least force you to make the choice if you are writing in modern idioms. I would still say C++ is strongly typed, it will enforce it on you are compile time, unless you deliberately do something to circumvent it.  
 
-This is a powerful feature of C++ that cannot be understated, its also its current downfall, cause sadly the progranmmer often doesn't know what they are doing, or at least isn't paying attention all the time and silly and potentially dangerous bugs slip through the net. On the other hand for performant small projects its still better than Rust in my opinion. I see why Rust for larger projects. 
+This is a powerful feature of C++ that cannot be understated, its also its current downfall, cause sadly the programmer often doesn't know what they are doing, or at least isn't paying attention all the time and silly and potentially dangerous bugs slip through the net. On the other hand for performant small projects its still better than Rust in my opinion. I see why Rust for larger projects. 
 
 This all said, the fact is you can if you obey the rules, write very safe C++ code, in a fraction of the time it takes to write a Rust alternative, and it'll be a whole lot more fun unless you really enjoy fighting with a compiler... you just cannot be as absolutely certain there aren't hidden gremlins in it.  
 
