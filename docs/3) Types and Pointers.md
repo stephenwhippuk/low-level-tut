@@ -3,7 +3,7 @@
 The first 2 topics kind of flow first, but the next few chapters could really have been done in any order, however I have decided to discuss types and their pointers first. 
 
 # What is a Type
-Whilst it may seem pretty obvious to anyone with a bit of programmig experience, what a type is. When we start looking at things at a lower level it increasingly becomes important to understand them in terms of the machine ratrher than abstractions that we usually think of when talking about them. 
+Whilst it may seem pretty obvious to anyone with a bit of programming experience, what a type is. When we start looking at things at a lower level it increasingly becomes important to understand them in terms of the machine rather than abstractions that we usually think of when talking about them. 
 
 > Put simply a type is data and the operations that work upon that data to give it its semantics. 
 
