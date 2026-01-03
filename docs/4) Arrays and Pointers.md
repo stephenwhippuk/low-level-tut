@@ -57,6 +57,38 @@ int x1 = myArray[1];
 int y1 = *(myArray +1);
 ```
 
+## Passing Arrays into functions
+
+when passing arrays into functions this relationship becomes clearer still
+
+consider the following function prototype
+
+```cpp
+void printArray(int[] arr, size_t length);
+```
+
+we cannot pass the size of an array in directly, but as there is no bounds checking we'll always need to provide a size argument to keep within bounds
+
+however the above could easilly be written (and often is), as
+
+```cpp
+void printArray(int* arr, size_t length);
+```
+and whats more you can still access it the same so within the function
+
+we could use either:
+
+```cpp        
+std::cout << arr[i] << (i < length-1) ? ',' : std::endl;
+```
+or 
+
+```cpp        
+std::cout << *(arr + i) << (i < length-1) ? ',' : std::endl;
+```
+
+with either prototype with the same output.
+
 ## Important Understandings
 
 An array is just sugar syntax over pointers. This is why an array has to be homogenous and also why the reference type is so important, it exists at compile time only, but ensures the memory calculation is correct. 
