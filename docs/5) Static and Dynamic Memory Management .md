@@ -2,9 +2,9 @@
 up until this point we have been dealing purely with static that is compiler managed memory. In this chapter we will look at whats going on here in a little more detail and look at how the programmer can manage memory themself where the allocations may be unknowable at build time. 
 
 ## Static Memory
-I have mentioned in passing that the compiler will use the stack to provide static memory management, it does this because its highly convenient to do so. However it helps to see this in action. Global variables can and probbably will be hadled in their own way, so we will be talking about local scoped variables here. Most machines have a Base Register and a Stack Frame register, but I'm not truly interested at this point how hardware actualy works in a given CPU etc, instead I will be using a fictious one just for understanding. 
+I have mentioned in passing that the compiler will use the stack to provide static memory management, it does this because its highly convenient to do so. However it helps to see this in action. Global variables can and probably will be handled in their own way, so we will be talking about local scoped variables here. Most machines have a Base Register and a Stack Frame register, but I'm not truly interested at this point how hardware actually works in a given CPU etc, instead I will be using a fictitious one just for understanding. 
 
-We will call this FR. When a block is entered, this frame register is set to the top of the current stack to serve as a local base and then the compiler will push to the top of the stack, all memory it needs for thos routine. This will all be popped back off again when the block is finished, and the FR returned to its previous location, ensuring that they have a lifetime of just the block in which they were declared. 
+We will call this FR. When a block is entered, this frame register is set to the top of the current stack to serve as a local base and then the compiler will push all memory it needs for this routine to the top of the stack. This will all be popped back off again when the block is finished, and the FR returned to its previous location, ensuring that they have a lifetime of just the block in which they were declared. 
 
 This is true whether they are parameters into a function, local variables or block scoped ultra local variables within the function. 
 
@@ -33,9 +33,9 @@ LDA AX, FP+4
 INC AX
 ```
 
-Ignoring the details, the important point to note is that it uses the FP and an offset to refer to a specific variable. All that remains in the code, is its position, (up to the compiler), and the number of bytes that are pushed, determined by its type. 
+Ignoring the details, the important point to note is that it uses the FP and an offset to refer to a specific variable. All that remains in the code, is its position, (up to the compiler and the order it has them pushed), and the number of bytes that are pushed, determined by its type. 
 
-We can refer to variables in parent scope with negative offsets. Anything like shadowing etc etc, these are just language details for the compiler to figure out in determining the correct offsets.
+We can refer to variables in parent scope with negative offsets. Anything like shadowing etc etc, are just language details for the compiler to figure out in determining the correct offsets.
 
 This is statically typed static memory management, and hense at runtime, the type is simply what ops and what offsets were chosen.  
 
