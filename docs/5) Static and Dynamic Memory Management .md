@@ -80,7 +80,7 @@ Static allocations, because they are simply sizes of bytes and will be managed a
 
 Dynamic Memory management has no garbage collector: whereas in a garbage collected language the programmer needs only worry about allocating the memory and never needs to worry about its lifetime, in C++ and other low level languages, the programmer needs to be very concerned about this. 
 
-A pointer being deleted because its static and this lost from the stack when the block exits, does not lead to the memory it points to disappearing and cannot. If you thiknk about passing a pointer into a function you will see why. 
+A pointer being deleted because its static and thus lost from the stack when the block exits, does not lead to the memory it points to disappearing and cannot. If you think about passing a pointer into a function you will see why. 
 
 C++ offers safe types that do encapsulate lifetimes such as sharedptr and uniqueptr, but they are high level standard library details to be considered at a future date. 
 
